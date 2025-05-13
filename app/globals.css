@@ -212,3 +212,40 @@ html {
   opacity: 1;
   transform: scale(1);
 }
+
+/* 暗黑模式样式 */
+.dark body {
+  color: var(--text-light);
+  background: #111827;
+}
+
+.dark .food-card {
+  background-color: #1f2937;
+  border: 1px solid #374151;
+}
+
+.dark .section-divider {
+  opacity: 0.5;
+}
+
+.dark #features, .dark #testimonials, .dark #faq {
+  background-color: #111827;
+}
+
+.dark #how-it-works, .dark #pricing {
+  background-color: #0f172a;
+}
+
+/* 暗黑模式下的文本颜色 */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f3f4f6;
+}
+
+.dark p {
+  color: #d1d5db;
+}
+
+/* 暗黑模式下的卡片悬停效果 */
+.dark .food-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}

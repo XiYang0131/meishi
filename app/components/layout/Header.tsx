@@ -2,76 +2,33 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import ThemeToggle from '../ui/ThemeToggle';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+    <header className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1">
-            <Link href="/">
-              <span className="sr-only">CulinaryFusion</span>
-              <div className="h-8 w-auto sm:h-10 flex items-center">
-                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold py-1 px-3 rounded-md">
-                  CF
-                </div>
-                <span className="ml-2 text-xl font-bold text-gray-900">CulinaryFusion</span>
-              </div>
+        <div className="flex justify-between items-center py-4">
+          <div className="flex items-center">
+            <Link href="/" className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
+              CulinaryFusion
             </Link>
           </div>
-          
-          <div className="-mr-2 -my-2 md:hidden">
-            <button
-              type="button"
-              className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500"
-              onClick={() => setIsMenuOpen(true)}
+          <div className="flex items-center space-x-4">
+            <nav className="hidden md:flex space-x-8">
+              <a href="#features" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">功能</a>
+              <a href="#how-it-works" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">工作原理</a>
+              <a href="#pricing" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">价格</a>
+            </nav>
+            <ThemeToggle />
+            <a
+              href="/get-started"
+              className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700"
             >
-              <span className="sr-only">打开菜单</span>
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
-          
-          <nav className="hidden md:flex space-x-10">
-            <Link href="#features" className="text-base font-medium text-gray-500 hover:text-emerald-600 transition-colors">
-              功能
-            </Link>
-            <Link href="#how-it-works" className="text-base font-medium text-gray-500 hover:text-emerald-600 transition-colors">
-              工作原理
-            </Link>
-            <Link href="#testimonials" className="text-base font-medium text-gray-500 hover:text-emerald-600 transition-colors">
-              用户评价
-            </Link>
-            <Link href="#pricing" className="text-base font-medium text-gray-500 hover:text-emerald-600 transition-colors">
-              价格
-            </Link>
-          </nav>
-          
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <Link href="/login" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-emerald-600 transition-colors">
-              登录
-            </Link>
-            <Link
-              href="/register"
-              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 btn-hover-effect"
-            >
-              注册
-            </Link>
+              开始使用
+            </a>
           </div>
         </div>
       </div>
