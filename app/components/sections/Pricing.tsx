@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import SectionTitle from '../ui/SectionTitle';
+import Container from '../ui/Container';
 
 export default function Pricing() {
   const tiers = [
@@ -59,7 +60,7 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="bg-gray-50 py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         <SectionTitle 
           title="价格" 
           subtitle="无论您是初学者还是专业厨师，我们都有适合您需求的计划" 
@@ -116,7 +117,7 @@ export default function Pricing() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 } 

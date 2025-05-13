@@ -10,10 +10,12 @@ import ScrollToTop from './components/ui/ScrollToTop';
 import NavIndicator from './components/ui/NavIndicator';
 import PageLoader from './components/ui/PageLoader';
 import PageNav from './components/ui/PageNav';
+import LoadingBar from './components/ui/LoadingBar';
 
 export default function Home() {
   return (
     <div className="page-transition">
+      <LoadingBar />
       <PageLoader />
       <Header />
       <PageNav />

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import SectionTitle from '../ui/SectionTitle';
+import Container from '../ui/Container';
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -41,7 +42,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="bg-white py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
           <SectionTitle 
             title="常见问题" 
@@ -90,7 +91,7 @@ export default function FAQ() {
             ))}
           </dl>
         </div>
-      </div>
+      </Container>
     </section>
   );
 } 

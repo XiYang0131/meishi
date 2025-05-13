@@ -1,4 +1,5 @@
 import SectionTitle from '../ui/SectionTitle';
+import Container from '../ui/Container';
 
 export default function Testimonials() {
   const testimonials = [
@@ -24,7 +25,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="bg-white py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         <SectionTitle 
           title="用户评价" 
           subtitle="了解CulinaryFusion如何改变人们在家烹饪的方式。" 
@@ -51,7 +52,7 @@ export default function Testimonials() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 } 

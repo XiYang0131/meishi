@@ -1,4 +1,5 @@
 import SectionTitle from '../ui/SectionTitle';
+import Container from '../ui/Container';
 
 export default function HowItWorks() {
   const steps = [
@@ -34,7 +35,7 @@ export default function HowItWorks() {
 
   return (
     <section id="how-it-works" className="bg-gray-50 py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         <SectionTitle 
           title="工作原理" 
           subtitle="只需几个简单步骤，即可将您的食材转变为美味佳肴。" 
@@ -78,7 +79,7 @@ export default function HowItWorks() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 } 
