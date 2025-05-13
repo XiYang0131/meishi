@@ -1,5 +1,3 @@
-import AnimateOnScroll from './AnimateOnScroll';
-
 interface SectionTitleProps {
   title: string;
   subtitle: string;
