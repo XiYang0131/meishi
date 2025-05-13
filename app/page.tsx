@@ -7,10 +7,13 @@ import Testimonials from './components/sections/Testimonials';
 import Pricing from './components/sections/Pricing';
 import FAQ from './components/sections/FAQ';
 import ScrollToTop from './components/ui/ScrollToTop';
+import NavIndicator from './components/ui/NavIndicator';
+import PageLoader from './components/ui/PageLoader';
 
 export default function Home() {
   return (
     <div className="page-transition">
+      <PageLoader />
       <Header />
       <main>
         <Hero />
@@ -27,6 +30,7 @@ export default function Home() {
       </main>
       <Footer />
       <ScrollToTop />
+      <NavIndicator />
     </div>
   );
 } 

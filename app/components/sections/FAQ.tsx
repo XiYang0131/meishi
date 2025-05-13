@@ -39,7 +39,7 @@ export default function FAQ() {
   ];
 
   return (
-    <div id="faq" className="bg-white py-16 sm:py-24">
+    <section id="faq" className="bg-white py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
           <h2 className="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
@@ -88,6 +88,6 @@ export default function FAQ() {
           </dl>
         </div>
       </div>
-    </div>
+    </section>
   );
 } 

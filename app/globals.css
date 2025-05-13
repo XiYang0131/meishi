@@ -98,6 +98,28 @@ section {
   .section-description {
     font-size: 1rem;
   }
+  
+  .section-divider {
+    width: 60px;
+    margin: 1.5rem auto;
+  }
+  
+  #features, #how-it-works, #testimonials, #pricing, #faq {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .food-card:hover {
+    transform: none; /* 在移动设备上禁用悬停效果 */
+  }
+}
+
+/* 平板设备优化 */
+@media (min-width: 641px) and (max-width: 1024px) {
+  #features, #how-it-works, #testimonials, #pricing, #faq {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 /* 确保每个部分都有一致的间距 */
@@ -114,4 +136,30 @@ section {
 
 #how-it-works, #pricing {
   background-color: var(--background-light);
+}
+
+/* 确保内容不会太宽 */
+.container-narrow {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 添加页面内容的最大宽度限制 */
+.content-wrapper {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* 改进文本可读性 */
+p {
+  line-height: 1.7;
+}
+
+/* 添加平滑滚动效果 */
+html {
+  scroll-behavior: smooth;
 }

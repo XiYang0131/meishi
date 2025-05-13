@@ -21,7 +21,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <div id="testimonials" className="bg-white py-16 sm:py-24">
+    <section id="testimonials" className="bg-white py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base font-semibold text-emerald-600 tracking-wide uppercase">用户评价</h2>
@@ -54,6 +54,6 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 } 

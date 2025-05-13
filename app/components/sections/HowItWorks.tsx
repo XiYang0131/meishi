@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 export default function HowItWorks() {
   const steps = [
     {
@@ -33,7 +31,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <div id="how-it-works" className="bg-gray-50 py-16 sm:py-24">
+    <section id="how-it-works" className="bg-gray-50 py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base font-semibold text-emerald-600 tracking-wide uppercase">流程</h2>
@@ -84,6 +82,6 @@ export default function HowItWorks() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 } 

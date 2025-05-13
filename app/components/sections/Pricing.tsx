@@ -57,7 +57,7 @@ export default function Pricing() {
   ];
 
   return (
-    <div id="pricing" className="bg-gray-50 py-16 sm:py-24">
+    <section id="pricing" className="bg-gray-50 py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base font-semibold text-emerald-600 tracking-wide uppercase">价格</h2>
@@ -121,6 +121,6 @@ export default function Pricing() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 } 
