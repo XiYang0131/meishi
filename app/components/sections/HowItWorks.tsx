@@ -1,5 +1,6 @@
 import SectionTitle from '../ui/SectionTitle';
 import Container from '../ui/Container';
+import AnimateOnScroll from '../ui/AnimateOnScroll';
 
 export default function HowItWorks() {
   const steps = [
@@ -36,46 +37,53 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-gray-50 py-16 sm:py-24">
       <Container>
-        <SectionTitle 
-          title="工作原理" 
-          subtitle="只需几个简单步骤，即可将您的食材转变为美味佳肴。" 
-        />
+        <AnimateOnScroll animation="fade-in visible">
+          <SectionTitle 
+            title="工作原理" 
+            subtitle="只需几个简单步骤，即可将您的食材转变为美味佳肴。" 
+          />
+        </AnimateOnScroll>
         
         <div className="mt-16">
           <div className="space-y-16">
             {steps.map((step, stepIdx) => (
-              <div
-                key={step.id}
-                className={`flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center ${
-                  stepIdx % 2 === 0 ? '' : 'lg:flex-row-reverse'
-                }`}
+              <AnimateOnScroll 
+                key={step.id} 
+                animation={stepIdx % 2 === 0 ? "slide-in-left visible" : "slide-in-right visible"}
+                delay={stepIdx * 100}
               >
-                <div className={`mt-6 lg:mt-0 lg:col-span-5 ${stepIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8'}`}>
-                  <div className="bg-white p-6 rounded-xl shadow-md food-card">
-                    <div className={`inline-flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r ${step.color} text-white mb-4`}>
-                      <span className="text-lg font-bold">{step.id}</span>
-                    </div>
-                    <h3 className="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
-                      {step.title}
-                    </h3>
-                    <p className="mt-3 text-lg text-gray-500">{step.description}</p>
-                  </div>
-                </div>
                 <div
-                  className={`flex-auto lg:col-span-6 ${
-                    stepIdx % 2 === 0 ? 'lg:col-start-7' : 'lg:col-start-1'
+                  className={`flex flex-col-reverse lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center ${
+                    stepIdx % 2 === 0 ? '' : 'lg:flex-row-reverse'
                   }`}
                 >
-                  <div className="aspect-w-5 aspect-h-3 rounded-lg overflow-hidden shadow-lg food-card">
-                    <div className={`w-full h-64 bg-gradient-to-br ${step.color} flex items-center justify-center`}>
-                      <div className="text-white text-center px-4">
-                        <p className="text-2xl font-bold">步骤 {step.id}</p>
-                        <p className="text-lg mt-2">{step.title}</p>
+                  <div className={`mt-6 lg:mt-0 lg:col-span-5 ${stepIdx % 2 === 0 ? 'lg:col-start-1' : 'lg:col-start-8'}`}>
+                    <div className="bg-white p-6 rounded-xl shadow-md food-card">
+                      <div className={`inline-flex items-center justify-center h-12 w-12 rounded-full bg-gradient-to-r ${step.color} text-white mb-4`}>
+                        <span className="text-lg font-bold">{step.id}</span>
+                      </div>
+                      <h3 className="text-2xl font-extrabold text-gray-900 tracking-tight sm:text-3xl">
+                        {step.title}
+                      </h3>
+                      <p className="mt-3 text-lg text-gray-500">{step.description}</p>
+                    </div>
+                  </div>
+                  <div
+                    className={`flex-auto lg:col-span-6 ${
+                      stepIdx % 2 === 0 ? 'lg:col-start-7' : 'lg:col-start-1'
+                    }`}
+                  >
+                    <div className="aspect-w-5 aspect-h-3 rounded-lg overflow-hidden shadow-lg food-card">
+                      <div className={`w-full h-64 bg-gradient-to-br ${step.color} flex items-center justify-center`}>
+                        <div className="text-white text-center px-4">
+                          <p className="text-2xl font-bold">步骤 {step.id}</p>
+                          <p className="text-lg mt-2">{step.title}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>

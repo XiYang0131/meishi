@@ -1,5 +1,6 @@
 import SectionTitle from '../ui/SectionTitle';
 import Container from '../ui/Container';
+import AnimateOnScroll from '../ui/AnimateOnScroll';
 
 export default function Testimonials() {
   const testimonials = [
@@ -26,29 +27,37 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-white py-16 sm:py-24">
       <Container>
-        <SectionTitle 
-          title="用户评价" 
-          subtitle="了解CulinaryFusion如何改变人们在家烹饪的方式。" 
-        />
+        <AnimateOnScroll animation="fade-in visible">
+          <SectionTitle 
+            title="用户评价" 
+            subtitle="了解CulinaryFusion如何改变人们在家烹饪的方式。" 
+          />
+        </AnimateOnScroll>
         
         <div className="mt-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="food-card overflow-hidden">
-                <div className={`h-2 bg-gradient-to-r ${testimonial.color}`}></div>
-                <div className="bg-white p-8 shadow-md h-full flex flex-col justify-between">
-                  <div>
-                    <svg className={`h-8 w-8 text-gradient-to-r ${testimonial.color}`} fill="currentColor" viewBox="0 0 32 32">
-                      <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                    </svg>
-                    <p className="mt-4 text-base text-gray-500">{testimonial.content}</p>
-                  </div>
-                  <div className="mt-6">
-                    <p className="text-base font-medium text-gray-900">{testimonial.author}</p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+              <AnimateOnScroll 
+                key={index} 
+                animation="zoom-in visible" 
+                delay={index * 100}
+              >
+                <div className="food-card overflow-hidden">
+                  <div className={`h-2 bg-gradient-to-r ${testimonial.color}`}></div>
+                  <div className="bg-white p-8 shadow-md h-full flex flex-col justify-between">
+                    <div>
+                      <svg className={`h-8 w-8 text-gradient-to-r ${testimonial.color}`} fill="currentColor" viewBox="0 0 32 32">
+                        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                      </svg>
+                      <p className="mt-4 text-base text-gray-500">{testimonial.content}</p>
+                    </div>
+                    <div className="mt-6">
+                      <p className="text-base font-medium text-gray-900">{testimonial.author}</p>
+                      <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>

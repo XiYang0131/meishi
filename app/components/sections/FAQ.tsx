@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import SectionTitle from '../ui/SectionTitle';
 import Container from '../ui/Container';
+import AnimateOnScroll from '../ui/AnimateOnScroll';
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -44,50 +45,58 @@ export default function FAQ() {
     <section id="faq" className="bg-white py-16 sm:py-24">
       <Container>
         <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
-          <SectionTitle 
-            title="常见问题" 
-            subtitle="关于 CulinaryFusion 的常见问题解答" 
-          />
+          <AnimateOnScroll animation="fade-in visible">
+            <SectionTitle 
+              title="常见问题" 
+              subtitle="关于 CulinaryFusion 的常见问题解答" 
+            />
+          </AnimateOnScroll>
           
           <dl className="mt-10 space-y-6 divide-y divide-gray-200">
             {faqs.map((faq, index) => (
-              <div key={index} className="pt-6">
-                <dt className="text-lg">
-                  <button
-                    onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
-                    className="text-left w-full flex justify-between items-center focus:outline-none"
-                  >
-                    <div className="flex items-center">
-                      <div className={`mr-4 h-8 w-8 rounded-full bg-gradient-to-r ${faq.color} flex items-center justify-center text-white font-medium`}>
-                        {index + 1}
+              <AnimateOnScroll 
+                key={index} 
+                animation="fade-in visible" 
+                delay={index * 100}
+              >
+                <div className="pt-6">
+                  <dt className="text-lg">
+                    <button
+                      onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
+                      className="text-left w-full flex justify-between items-center focus:outline-none"
+                    >
+                      <div className="flex items-center">
+                        <div className={`mr-4 h-8 w-8 rounded-full bg-gradient-to-r ${faq.color} flex items-center justify-center text-white font-medium`}>
+                          {index + 1}
+                        </div>
+                        <span className="font-medium text-gray-900">{faq.question}</span>
                       </div>
-                      <span className="font-medium text-gray-900">{faq.question}</span>
+                      <span className="ml-6 flex-shrink-0">
+                        <svg
+                          className={`h-6 w-6 transform ${
+                            openIndex === index ? 'rotate-180' : 'rotate-0'
+                          } transition-transform duration-200 ease-in-out text-emerald-500`}
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
+                    </button>
+                  </dt>
+                  <dd
+                    className={`mt-4 transition-all duration-300 ease-in-out overflow-hidden ${
+                      openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="pl-12 pr-6 pb-2">
+                      <p className="text-base text-gray-500">{faq.answer}</p>
                     </div>
-                    <span className="ml-6 flex-shrink-0">
-                      <svg
-                        className={`h-6 w-6 transform ${
-                          openIndex === index ? 'rotate-180' : 'rotate-0'
-                        } transition-transform duration-200 ease-in-out text-emerald-500`}
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </button>
-                </dt>
-                <dd
-                  className={`mt-4 transition-all duration-300 ease-in-out overflow-hidden ${
-                    openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <div className="pl-12 pr-6 pb-2">
-                    <p className="text-base text-gray-500">{faq.answer}</p>
-                  </div>
-                </dd>
-              </div>
+                  </dd>
+                </div>
+              </AnimateOnScroll>
             ))}
           </dl>
         </div>
