@@ -15,12 +15,6 @@ export default function ThemeToggle() {
       (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
     
     setDarkMode(isDarkMode);
-    
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
   }, []);
 
   const toggleDarkMode = () => {
