@@ -9,12 +9,14 @@ import FAQ from './components/sections/FAQ';
 import ScrollToTop from './components/ui/ScrollToTop';
 import NavIndicator from './components/ui/NavIndicator';
 import PageLoader from './components/ui/PageLoader';
+import PageNav from './components/ui/PageNav';
 
 export default function Home() {
   return (
     <div className="page-transition">
       <PageLoader />
       <Header />
+      <PageNav />
       <main>
         <Hero />
         <div className="section-divider bg-gradient-to-r from-emerald-500 to-teal-500 h-1 mx-auto w-24 my-8"></div>

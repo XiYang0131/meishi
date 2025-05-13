@@ -1,3 +1,5 @@
+import SectionTitle from '../ui/SectionTitle';
+
 export default function Testimonials() {
   const testimonials = [
     {
@@ -23,15 +25,11 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-white py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-base font-semibold text-emerald-600 tracking-wide uppercase">用户评价</h2>
-          <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-            家庭厨师的挚爱
-          </p>
-          <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-            了解CulinaryFusion如何改变人们在家烹饪的方式。
-          </p>
-        </div>
+        <SectionTitle 
+          title="用户评价" 
+          subtitle="了解CulinaryFusion如何改变人们在家烹饪的方式。" 
+        />
+        
         <div className="mt-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {testimonials.map((testimonial, index) => (

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SectionTitle from '../ui/SectionTitle';
 
 export default function Pricing() {
   const tiers = [
@@ -59,16 +60,11 @@ export default function Pricing() {
   return (
     <section id="pricing" className="bg-gray-50 py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-base font-semibold text-emerald-600 tracking-wide uppercase">价格</h2>
-          <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-            为每位厨师提供合适的方案
-          </p>
-          <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-            无论您是初学者还是专业厨师，我们都有适合您需求的计划
-          </p>
-        </div>
-
+        <SectionTitle 
+          title="价格" 
+          subtitle="无论您是初学者还是专业厨师，我们都有适合您需求的计划" 
+        />
+        
         <div className="mt-16 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8">
           {tiers.map((tier) => (
             <div 

@@ -1,4 +1,5 @@
 import SectionTitle from '../ui/SectionTitle';
+import Container from '../ui/Container';
 
 export default function Features() {
   const features = [
@@ -67,7 +68,7 @@ export default function Features() {
 
   return (
     <section id="features" className="bg-white py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         <SectionTitle 
           title="功能" 
           subtitle="CulinaryFusion 提供多种功能，帮助您充分利用厨房中的食材，创造美味佳肴。" 
@@ -88,7 +89,7 @@ export default function Features() {
             ))}
           </dl>
         </div>
-      </div>
+      </Container>
     </section>
   );
 } 

@@ -1,3 +1,5 @@
+import SectionTitle from '../ui/SectionTitle';
+
 export default function HowItWorks() {
   const steps = [
     {
@@ -33,16 +35,11 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-gray-50 py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h2 className="text-base font-semibold text-emerald-600 tracking-wide uppercase">流程</h2>
-          <p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-            工作原理
-          </p>
-          <p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
-            只需几个简单步骤，即可将您的食材转变为美味佳肴。
-          </p>
-        </div>
-
+        <SectionTitle 
+          title="工作原理" 
+          subtitle="只需几个简单步骤，即可将您的食材转变为美味佳肴。" 
+        />
+        
         <div className="mt-16">
           <div className="space-y-16">
             {steps.map((step, stepIdx) => (

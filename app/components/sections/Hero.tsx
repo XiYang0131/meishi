@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ScrollIndicator from '../ui/ScrollIndicator';
 
 export default function Hero() {
   return (
@@ -57,6 +58,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <ScrollIndicator />
     </div>
   );
 } 

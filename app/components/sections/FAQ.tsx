@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import SectionTitle from '../ui/SectionTitle';
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -42,9 +43,11 @@ export default function FAQ() {
     <section id="faq" className="bg-white py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
-          <h2 className="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
-            常见问题
-          </h2>
+          <SectionTitle 
+            title="常见问题" 
+            subtitle="关于 CulinaryFusion 的常见问题解答" 
+          />
+          
           <dl className="mt-10 space-y-6 divide-y divide-gray-200">
             {faqs.map((faq, index) => (
               <div key={index} className="pt-6">
