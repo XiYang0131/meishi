@@ -20,31 +20,26 @@ export default function FAQ() {
       color: "from-blue-400 to-indigo-500"
     },
     {
-      question: "卡路里信息有多准确？",
-      answer: "我们的营养计算基于标准的食品成分数据，通常在10%的误差范围内。如需精确的饮食跟踪，我们建议咨询营养师。",
+      question: "如何查看食谱的营养信息？",
+      answer: "每个食谱都附有详细的营养分析，包括卡路里、蛋白质、碳水化合物、脂肪、维生素和矿物质含量。您可以在食谱详情页面查看这些信息，帮助您做出符合健康目标的选择。",
       color: "from-orange-400 to-amber-500"
     },
     {
-      question: "我可以保存我喜欢的食谱吗？",
-      answer: "是的！创建账户后，您可以保存喜欢的食谱，创建膳食计划，甚至与社区分享您自己改编的食谱。",
+      question: "我可以保存喜欢的食谱吗？",
+      answer: "是的，您可以将喜欢的食谱保存到个人收藏夹中，方便日后查看。您还可以为食谱添加个人笔记，记录您的修改或想法。",
       color: "from-pink-400 to-rose-500"
     },
     {
-      question: "涵盖哪些烹饪风格？",
-      answer: "我们专注于结合东西方烹饪传统，特别强调中国、日本、韩国、意大利、法国和美国烹饪。我们的目标是创造真正的全球融合美食体验。",
+      question: "CulinaryFusion 支持哪些语言？",
+      answer: "目前，我们的平台支持中文、英文、日文、韩文和法文。我们计划在未来添加更多语言支持。",
       color: "from-purple-400 to-violet-500"
-    },
-    {
-      question: "如何提供反馈？",
-      answer: "我们非常重视用户反馈！您可以通过应用内的反馈表单、电子邮件或社交媒体渠道与我们联系。我们的团队会认真考虑每一条建议，不断改进平台。",
-      color: "from-red-400 to-rose-500"
-    },
+    }
   ];
 
   return (
-    <section id="faq" className="bg-white py-16 sm:py-24">
+    <section id="faq" className="bg-white py-16 sm:py-24 dark:bg-gray-900">
       <Container>
-        <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200">
+        <div className="max-w-3xl mx-auto divide-y-2 divide-gray-200 dark:divide-gray-700">
           <AnimateOnScroll animation="fade-in visible">
             <SectionTitle 
               title="常见问题" 
@@ -52,7 +47,7 @@ export default function FAQ() {
             />
           </AnimateOnScroll>
           
-          <dl className="mt-10 space-y-6 divide-y divide-gray-200">
+          <dl className="mt-10 space-y-6 divide-y divide-gray-200 dark:divide-gray-700">
             {faqs.map((faq, index) => (
               <AnimateOnScroll 
                 key={index} 
@@ -63,24 +58,11 @@ export default function FAQ() {
                   <dt className="text-lg">
                     <button
                       onClick={() => setOpenIndex(index === openIndex ? -1 : index)}
-                      className="text-left w-full flex justify-between items-center focus:outline-none"
+                      className="text-left w-full flex justify-between items-center text-gray-900 dark:text-white focus:outline-none"
                     >
-                      <div className="flex items-center">
-                        <div className={`mr-4 h-8 w-8 rounded-full bg-gradient-to-r ${faq.color} flex items-center justify-center text-white font-medium`}>
-                          {index + 1}
-                        </div>
-                        <span className="font-medium text-gray-900">{faq.question}</span>
-                      </div>
-                      <span className="ml-6 flex-shrink-0">
-                        <svg
-                          className={`h-6 w-6 transform ${
-                            openIndex === index ? 'rotate-180' : 'rotate-0'
-                          } transition-transform duration-200 ease-in-out text-emerald-500`}
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
+                      <span className="font-medium">{faq.question}</span>
+                      <span className={`ml-6 h-7 flex items-center ${openIndex === index ? 'transform rotate-180' : ''}`}>
+                        <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </span>
@@ -92,7 +74,7 @@ export default function FAQ() {
                     }`}
                   >
                     <div className="pl-12 pr-6 pb-2">
-                      <p className="text-base text-gray-500">{faq.answer}</p>
+                      <p className="text-base text-gray-500 dark:text-gray-300">{faq.answer}</p>
                     </div>
                   </dd>
                 </div>

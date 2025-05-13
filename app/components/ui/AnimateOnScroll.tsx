@@ -7,7 +7,7 @@ interface AnimateOnScrollProps {
   animation: string;
   delay?: number;
   threshold?: number;
-  className?: string;
+  duration?: number;
 }
 
 export default function AnimateOnScroll({
@@ -15,7 +15,7 @@ export default function AnimateOnScroll({
   animation,
   delay = 0,
   threshold = 0.1,
-  className = '',
+  duration = 800,
 }: AnimateOnScrollProps) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -48,8 +48,11 @@ export default function AnimateOnScroll({
   return (
     <div
       ref={ref}
-      className={`${className} ${isVisible ? animation : 'opacity-0'}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`${animation} ${isVisible ? 'visible' : 'invisible'}`}
+      style={{
+        transitionDelay: `${delay}ms`,
+        transitionDuration: `${duration}ms`,
+      }}
     >
       {children}
     </div>

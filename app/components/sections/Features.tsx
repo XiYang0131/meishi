@@ -22,14 +22,14 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      color: 'bg-gradient-to-r from-orange-500 to-amber-500',
+      color: 'bg-gradient-to-r from-blue-500 to-indigo-500',
     },
     {
       name: '减少食物浪费',
-      description: '通过使用您已有的食材，减少食物浪费，为环保做贡献。',
+      description: '通过充分利用您已有的食材，减少食物浪费，为环保做贡献。',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       ),
       color: 'bg-gradient-to-r from-green-500 to-lime-500',
@@ -42,61 +42,58 @@ export default function Features() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       ),
-      color: 'bg-gradient-to-r from-blue-500 to-cyan-500',
+      color: 'bg-gradient-to-r from-orange-500 to-amber-500',
     },
     {
-      name: '个性化偏好',
-      description: '设置您的饮食限制和口味偏好，获取量身定制的食谱推荐。',
+      name: '个性化推荐',
+      description: '根据您的口味偏好和饮食限制，获取个性化的食谱推荐。',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
-      color: 'bg-gradient-to-r from-purple-500 to-indigo-500',
+      color: 'bg-gradient-to-r from-pink-500 to-rose-500',
     },
     {
       name: '社区分享',
-      description: '与其他美食爱好者分享您的食谱创作和改编，建立美食社区。',
+      description: '与其他美食爱好者分享您的创作，获取灵感和反馈。',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       ),
-      color: 'bg-gradient-to-r from-pink-500 to-rose-500',
+      color: 'bg-gradient-to-r from-purple-500 to-violet-500',
     },
   ];
 
   return (
-    <section id="features" className="bg-white py-16 sm:py-24">
+    <section id="features" className="bg-white py-16 sm:py-24 dark:bg-gray-900">
       <Container>
         <AnimateOnScroll animation="fade-in visible">
           <SectionTitle 
             title="功能" 
-            subtitle="CulinaryFusion 提供多种功能，帮助您充分利用厨房中的食材，创造美味佳肴。" 
+            subtitle="CulinaryFusion 提供多种功能，帮助您轻松创建美味佳肴。" 
           />
         </AnimateOnScroll>
         
-        <div className="mt-16">
-          <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+        <div className="mt-12">
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
               <AnimateOnScroll 
-                key={feature.name} 
-                animation="fade-in visible" 
+                key={index} 
+                animation="zoom-in visible" 
                 delay={index * 100}
               >
-                <div className="relative food-card bg-white p-6 rounded-xl shadow-md">
-                  <dt>
-                    <div className={`absolute flex items-center justify-center h-12 w-12 rounded-md text-white ${feature.color}`}>
-                      {feature.icon}
-                    </div>
-                    <p className="ml-16 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>
-                  </dt>
-                  <dd className="mt-2 ml-16 text-base text-gray-500">{feature.description}</dd>
+                <div className="food-card bg-white p-6 rounded-lg shadow-md h-full flex flex-col dark:bg-gray-800">
+                  <div className={`rounded-full p-3 text-white w-12 h-12 flex items-center justify-center mb-4 ${feature.color}`}>
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white">{feature.name}</h3>
+                  <p className="mt-2 text-base text-gray-500 dark:text-gray-300">{feature.description}</p>
                 </div>
               </AnimateOnScroll>
             ))}
-          </dl>
+          </div>
         </div>
       </Container>
     </section>

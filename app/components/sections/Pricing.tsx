@@ -1,120 +1,121 @@
 import Link from 'next/link';
 import SectionTitle from '../ui/SectionTitle';
 import Container from '../ui/Container';
+import AnimateOnScroll from '../ui/AnimateOnScroll';
 
 export default function Pricing() {
   const tiers = [
     {
       name: '免费版',
-      href: '/register',
-      priceMonthly: '¥0',
+      price: '¥0',
       description: '适合初次尝试的用户',
-      includedFeatures: [
-        '每日10个食谱推荐',
+      features: [
+        '每日最多5个食谱推荐',
         '基本食材匹配',
-        '标准食谱说明',
+        '有限的食谱库访问',
         '基本营养信息',
       ],
-      color: 'from-emerald-400 to-teal-500',
-      textColor: 'text-emerald-600',
-      buttonColor: 'bg-gradient-to-r from-emerald-500 to-teal-600',
+      cta: '开始使用',
+      color: 'from-emerald-500 to-teal-500',
+      mostPopular: false,
     },
     {
       name: '高级版',
-      href: '/register?plan=pro',
-      priceMonthly: '¥39',
-      description: '适合热爱烹饪的家庭厨师',
-      includedFeatures: [
+      price: '¥39',
+      period: '/月',
+      description: '适合热爱烹饪的家庭',
+      features: [
         '无限食谱推荐',
         '高级食材匹配算法',
-        '详细分步食谱说明',
-        '完整营养分析',
-        '个性化口味偏好设置',
-        '食谱收藏与分享',
-        '每周膳食计划',
+        '完整食谱库访问',
+        '详细营养分析',
+        '个性化饮食计划',
+        '无广告体验',
       ],
-      color: 'from-blue-400 to-indigo-500',
-      textColor: 'text-blue-600',
-      buttonColor: 'bg-gradient-to-r from-blue-500 to-indigo-600',
-      featured: true,
+      cta: '免费试用14天',
+      color: 'from-blue-500 to-indigo-500',
+      mostPopular: true,
     },
     {
-      name: '大厨版',
-      href: '/register?plan=chef',
-      priceMonthly: '¥79',
-      description: '适合专业厨师和美食爱好者',
-      includedFeatures: [
+      name: '专业版',
+      price: '¥99',
+      period: '/月',
+      description: '适合专业厨师和餐厅',
+      features: [
         '所有高级版功能',
-        'AI辅助食谱创作',
-        '专业烹饪技巧视频',
-        '食材替代建议',
-        '批量食谱缩放',
+        '批量食谱生成',
+        '专业营养分析',
+        '成本计算工具',
+        '菜单规划助手',
         '优先客户支持',
-        '专业厨师社区访问',
       ],
-      color: 'from-orange-400 to-amber-500',
-      textColor: 'text-orange-600',
-      buttonColor: 'bg-gradient-to-r from-orange-500 to-amber-600',
+      cta: '联系销售',
+      color: 'from-purple-500 to-violet-500',
+      mostPopular: false,
     },
   ];
 
   return (
-    <section id="pricing" className="bg-gray-50 py-16 sm:py-24">
+    <section id="pricing" className="bg-gray-50 py-16 sm:py-24 dark:bg-gray-800">
       <Container>
-        <SectionTitle 
-          title="价格" 
-          subtitle="无论您是初学者还是专业厨师，我们都有适合您需求的计划" 
-        />
+        <AnimateOnScroll animation="fade-in visible">
+          <SectionTitle 
+            title="价格方案" 
+            subtitle="选择最适合您需求的方案，开始您的烹饪之旅。" 
+          />
+        </AnimateOnScroll>
         
-        <div className="mt-16 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8">
-          {tiers.map((tier) => (
-            <div 
-              key={tier.name} 
-              className={`relative food-card overflow-hidden ${
-                tier.featured ? 'lg:scale-105 z-10' : ''
-              }`}
+        <div className="mt-12 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8">
+          {tiers.map((tier, index) => (
+            <AnimateOnScroll 
+              key={index} 
+              animation="zoom-in visible" 
+              delay={index * 100}
             >
-              {tier.featured && (
-                <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-pink-500 to-purple-500"></div>
-              )}
-              <div className="bg-white p-8 h-full flex flex-col">
-                <div className="flex-1">
-                  <h3 className={`text-xl font-semibold ${tier.textColor}`}>{tier.name}</h3>
-                  <div className={`mt-4 flex items-baseline text-gray-900`}>
-                    <span className="text-5xl font-extrabold tracking-tight">{tier.priceMonthly}</span>
-                    <span className="ml-1 text-xl font-semibold">/月</span>
+              <div className={`relative flex flex-col rounded-2xl shadow-lg overflow-hidden food-card ${
+                tier.mostPopular ? 'border-2 border-emerald-500 dark:border-emerald-400' : 'border border-gray-200 dark:border-gray-700'
+              }`}>
+                {tier.mostPopular && (
+                  <div className="absolute top-0 right-0 pt-2 pr-4">
+                    <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200">
+                      最受欢迎
+                    </span>
                   </div>
-                  <p className="mt-6 text-gray-500">{tier.description}</p>
-
-                  <ul role="list" className="mt-6 space-y-6">
-                    {tier.includedFeatures.map((feature) => (
-                      <li key={feature} className="flex">
-                        <div className={`flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-r ${tier.color} flex items-center justify-center`}>
-                          <svg
-                            className="w-4 h-4 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            aria-hidden="true"
-                          >
+                )}
+                <div className={`p-8 bg-white dark:bg-gray-800 ${tier.mostPopular ? 'bg-opacity-90' : ''}`}>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{tier.name}</h3>
+                    <div className="mt-4 flex items-baseline">
+                      <span className="text-4xl font-extrabold text-gray-900 dark:text-white">{tier.price}</span>
+                      {tier.period && <span className="ml-1 text-xl font-semibold text-gray-500 dark:text-gray-400">{tier.period}</span>}
+                    </div>
+                    <p className="mt-2 text-base text-gray-500 dark:text-gray-400">{tier.description}</p>
+                  </div>
+                </div>
+                <div className="flex-1 flex flex-col justify-between p-8 bg-white dark:bg-gray-800 space-y-6">
+                  <ul className="space-y-4">
+                    {tier.features.map((feature, featureIdx) => (
+                      <li key={featureIdx} className="flex items-start">
+                        <div className="flex-shrink-0">
+                          <svg className="h-6 w-6 text-emerald-500 dark:text-emerald-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                           </svg>
                         </div>
-                        <span className="ml-3 text-gray-500">{feature}</span>
+                        <p className="ml-3 text-base text-gray-500 dark:text-gray-400">{feature}</p>
                       </li>
                     ))}
                   </ul>
+                  <div>
+                    <Link
+                      href="/get-started"
+                      className={`w-full flex items-center justify-center px-5 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r ${tier.color} hover:opacity-90 btn-hover-effect`}
+                    >
+                      {tier.cta}
+                    </Link>
+                  </div>
                 </div>
-
-                <Link
-                  href={tier.href}
-                  className={`mt-8 block w-full text-center py-3 px-6 border border-transparent rounded-md text-white font-medium ${tier.buttonColor} hover:opacity-90 transition-all btn-hover-effect`}
-                >
-                  开始使用{tier.name}
-                </Link>
               </div>
-            </div>
+            </AnimateOnScroll>
           ))}
         </div>
       </Container>

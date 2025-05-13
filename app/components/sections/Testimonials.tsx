@@ -25,7 +25,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="bg-white py-16 sm:py-24">
+    <section id="testimonials" className="bg-white py-16 sm:py-24 dark:bg-gray-900">
       <Container>
         <AnimateOnScroll animation="fade-in visible">
           <SectionTitle 
@@ -44,16 +44,16 @@ export default function Testimonials() {
               >
                 <div className="food-card overflow-hidden">
                   <div className={`h-2 bg-gradient-to-r ${testimonial.color}`}></div>
-                  <div className="bg-white p-8 shadow-md h-full flex flex-col justify-between">
+                  <div className="bg-white p-8 shadow-md h-full flex flex-col justify-between dark:bg-gray-800">
                     <div>
-                      <svg className={`h-8 w-8 text-gradient-to-r ${testimonial.color}`} fill="currentColor" viewBox="0 0 32 32">
-                        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                      <svg className="h-8 w-8 text-emerald-500 dark:text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                       </svg>
-                      <p className="mt-4 text-base text-gray-500">{testimonial.content}</p>
+                      <p className="mt-4 text-base text-gray-500 dark:text-gray-300">{testimonial.content}</p>
                     </div>
                     <div className="mt-6">
-                      <p className="text-base font-medium text-gray-900">{testimonial.author}</p>
-                      <p className="text-sm text-gray-500">{testimonial.role}</p>
+                      <p className="text-base font-medium text-gray-900 dark:text-white">{testimonial.author}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
                     </div>
                   </div>
                 </div>

@@ -1,21 +1,20 @@
+import AnimateOnScroll from './AnimateOnScroll';
+
 interface SectionTitleProps {
   title: string;
-  subtitle?: string;
-  centered?: boolean;
+  subtitle: string;
 }
 
-export default function SectionTitle({ title, subtitle, centered = true }: SectionTitleProps) {
+export default function SectionTitle({ title, subtitle }: SectionTitleProps) {
   return (
-    <div className={`${centered ? 'text-center' : ''} mb-12`}>
-      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl section-title">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
         {title}
       </h2>
-      {subtitle && (
-        <p className="mt-4 max-w-2xl text-xl text-gray-500 section-description mx-auto">
-          {subtitle}
-        </p>
-      )}
-      <div className="mt-6 w-24 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
+      <div className="section-divider"></div>
+      <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
+        {subtitle}
+      </p>
     </div>
   );
 } 
