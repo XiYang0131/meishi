@@ -2,7 +2,7 @@
 
 import { createContext, useEffect } from 'react';
 
-// 创建主题上下文，不包含 theme 属性
+// 创建主题上下文
 export const ThemeContext = createContext({
   setTheme: (theme: string) => {},
 });
