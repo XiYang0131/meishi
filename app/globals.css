@@ -11,12 +11,23 @@
 @tailwind utilities;
 
 :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
   --primary-color: #10b981; /* 翠绿色 */
   --secondary-color: #f97316; /* 橙色 */
   --accent-color: #8b5cf6; /* 紫色 */
   --background-light: #f9fafb;
   --text-dark: #1f2937;
   --text-light: #f3f4f6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 17, 24, 39;
+    --background-end-rgb: 17, 24, 39;
+  }
 }
 
 body {
@@ -37,9 +48,11 @@ section {
 
 /* 分隔线 */
 .section-divider {
-  border-radius: 2px;
-  margin: 2rem auto;
-  opacity: 0.8;
+  margin: 1.5rem auto;
+  width: 6rem;
+  height: 0.25rem;
+  background: linear-gradient(to right, #10b981, #0d9488);
+  border-radius: 9999px;
 }
 
 /* 自定义渐变背景 */
@@ -56,28 +69,27 @@ section {
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .food-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* 按钮动画 */
 .btn-hover-effect {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-hover-effect:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* 页面过渡动画 */
 .page-transition {
-  opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -171,19 +183,17 @@ html {
 /* 滚动动画 */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.8s ease-in-out;
 }
 
 .fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .slide-in-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
 
 .slide-in-left.visible {
@@ -194,7 +204,7 @@ html {
 .slide-in-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
 
 .slide-in-right.visible {
@@ -205,7 +215,7 @@ html {
 .zoom-in {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
 }
 
 .zoom-in.visible {
@@ -225,7 +235,7 @@ html {
 }
 
 .dark .section-divider {
-  opacity: 0.5;
+  background: linear-gradient(to right, #059669, #0f766e);
 }
 
 .dark #features, .dark #testimonials, .dark #faq {

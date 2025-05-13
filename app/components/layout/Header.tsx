@@ -1,56 +1,172 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ThemeToggle from '../ui/ThemeToggle';
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 shadow-sm">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white bg-opacity-90 backdrop-blur-sm shadow-md dark:bg-gray-900 dark:bg-opacity-90'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">
-              CulinaryFusion
+        <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+          <div className="flex justify-start lg:w-0 lg:flex-1">
+            <Link href="/" className="flex items-center">
+              <span className="sr-only">CulinaryFusion</span>
+              <svg
+                className="h-8 w-auto sm:h-10 text-emerald-500"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+              <span className={`ml-2 text-xl font-bold ${isScrolled ? 'text-gray-900 dark:text-white' : 'text-white'}`}>
+                CulinaryFusion
+              </span>
             </Link>
           </div>
-          <div className="flex items-center space-x-4">
-            <nav className="hidden md:flex space-x-8">
-              <a href="#features" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">功能</a>
-              <a href="#how-it-works" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">工作原理</a>
-              <a href="#pricing" className="text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400">价格</a>
-            </nav>
+          
+          <div className="-mr-2 -my-2 md:hidden">
+            <button
+              type="button"
+              className={`inline-flex items-center justify-center p-2 rounded-md ${
+                isScrolled ? 'text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-white' : 'text-white hover:text-gray-200'
+              } focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500`}
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <span className="sr-only">打开菜单</span>
+              <svg
+                className="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+          
+          <nav className="hidden md:flex space-x-10">
+            <Link
+              href="#features"
+              className={`text-base font-medium ${
+                isScrolled ? 'text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' : 'text-white hover:text-gray-200'
+              }`}
+            >
+              功能
+            </Link>
+            <Link
+              href="#how-it-works"
+              className={`text-base font-medium ${
+                isScrolled ? 'text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' : 'text-white hover:text-gray-200'
+              }`}
+            >
+              工作原理
+            </Link>
+            <Link
+              href="#testimonials"
+              className={`text-base font-medium ${
+                isScrolled ? 'text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' : 'text-white hover:text-gray-200'
+              }`}
+            >
+              用户评价
+            </Link>
+            <Link
+              href="#pricing"
+              className={`text-base font-medium ${
+                isScrolled ? 'text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' : 'text-white hover:text-gray-200'
+              }`}
+            >
+              价格
+            </Link>
+            <Link
+              href="#faq"
+              className={`text-base font-medium ${
+                isScrolled ? 'text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' : 'text-white hover:text-gray-200'
+              }`}
+            >
+              常见问题
+            </Link>
+          </nav>
+          
+          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
             <ThemeToggle />
-            <a
+            <Link
+              href="/login"
+              className={`ml-4 whitespace-nowrap text-base font-medium ${
+                isScrolled ? 'text-gray-500 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white' : 'text-white hover:text-gray-200'
+              }`}
+            >
+              登录
+            </Link>
+            <Link
               href="/get-started"
-              className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700"
+              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 btn-hover-effect"
             >
               开始使用
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
-      {isMenuOpen && (
-        <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-50">
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+      {/* 移动菜单 */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white dark:bg-gray-800 divide-y-2 divide-gray-50 dark:divide-gray-700">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="h-8 w-auto flex items-center">
-                    <div className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold py-1 px-3 rounded-md">
-                      CF
-                    </div>
-                    <span className="ml-2 text-xl font-bold text-gray-900">CulinaryFusion</span>
-                  </div>
+                  <svg
+                    className="h-8 w-auto text-emerald-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
                 </div>
                 <div className="-mr-2">
                   <button
                     type="button"
-                    className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500"
-                    onClick={() => setIsMenuOpen(false)}
+                    className="bg-white dark:bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <span className="sr-only">关闭菜单</span>
                     <svg
@@ -75,71 +191,57 @@ export default function Header() {
                 <nav className="grid gap-y-8">
                   <Link
                     href="#features"
-                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                    onClick={() => setIsMenuOpen(false)}
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <div className="flex-shrink-0 h-6 w-6 text-emerald-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                    </div>
-                    <span className="ml-3 text-base font-medium text-gray-900">功能</span>
+                    <span className="ml-3 text-base font-medium text-gray-900 dark:text-white">功能</span>
                   </Link>
                   <Link
                     href="#how-it-works"
-                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                    onClick={() => setIsMenuOpen(false)}
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <div className="flex-shrink-0 h-6 w-6 text-emerald-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <span className="ml-3 text-base font-medium text-gray-900">工作原理</span>
+                    <span className="ml-3 text-base font-medium text-gray-900 dark:text-white">工作原理</span>
                   </Link>
                   <Link
                     href="#testimonials"
-                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                    onClick={() => setIsMenuOpen(false)}
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <div className="flex-shrink-0 h-6 w-6 text-emerald-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                      </svg>
-                    </div>
-                    <span className="ml-3 text-base font-medium text-gray-900">用户评价</span>
+                    <span className="ml-3 text-base font-medium text-gray-900 dark:text-white">用户评价</span>
                   </Link>
                   <Link
                     href="#pricing"
-                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                    onClick={() => setIsMenuOpen(false)}
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <div className="flex-shrink-0 h-6 w-6 text-emerald-600">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <span className="ml-3 text-base font-medium text-gray-900">价格</span>
+                    <span className="ml-3 text-base font-medium text-gray-900 dark:text-white">价格</span>
+                  </Link>
+                  <Link
+                    href="#faq"
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="ml-3 text-base font-medium text-gray-900 dark:text-white">常见问题</span>
                   </Link>
                 </nav>
               </div>
             </div>
             <div className="py-6 px-5 space-y-6">
+              <div className="flex items-center">
+                <ThemeToggle />
+              </div>
               <div>
                 <Link
-                  href="/register"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 btn-hover-effect"
-                  onClick={() => setIsMenuOpen(false)}
+                  href="/get-started"
+                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 btn-hover-effect"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  注册
+                  开始使用
                 </Link>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
+                <p className="mt-6 text-center text-base font-medium text-gray-500 dark:text-gray-400">
                   已有账户?{' '}
-                  <Link
-                    href="/login"
-                    className="text-emerald-600 hover:text-emerald-500"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
+                  <Link href="/login" className="text-emerald-600 hover:text-emerald-500 dark:text-emerald-400 dark:hover:text-emerald-300">
                     登录
                   </Link>
                 </p>
